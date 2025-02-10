@@ -3,7 +3,8 @@ package spring.rest.controller;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
-import spring.rest.model.User;
+
+import spring.rest.model.MyUser;
 import spring.rest.service.UserService;
 
 import java.util.List;
@@ -19,14 +20,14 @@ public class UserController {
     }
 
     @PostMapping(value = "/users")
-    public ResponseEntity<?> create(@RequestBody User user) {
-        userService.create(user);
+    public ResponseEntity<?> create(@RequestBody MyUser myUser) {
+        userService.create(myUser);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @GetMapping (value = "/users")
-    public ResponseEntity<List<User>> read() {
-        final List<User> users = userService.readAll();
+    public ResponseEntity<List<MyUser>> read() {
+        final List<MyUser> users = userService.readAll();
 
         return users != null &&  !users.isEmpty()
                 ? new ResponseEntity<>(users, HttpStatus.OK)

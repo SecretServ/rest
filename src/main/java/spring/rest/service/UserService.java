@@ -1,6 +1,6 @@
 package spring.rest.service;
 
-import spring.rest.model.User;
+import spring.rest.model.MyUser;
 
 import java.util.List;
 
@@ -10,14 +10,14 @@ public interface UserService {
      *
      * @param user - клиент для создания
      */
-    void create(User user);
+    void create(MyUser myUser);
 
     /**
      * Возвращает список всех имеющихся клиентов
      *
      * @return список клиентов
      */
-    List<User> readAll();
+    List<MyUser> readAll();
 
     /**
      * Возвращает клиента по его ID
@@ -25,7 +25,7 @@ public interface UserService {
      * @param id - ID клиента
      * @return - объект клиента с заданным ID
      */
-    User read(Integer id);
+    MyUser read(Integer id);
 
     /**
      * Обновляет клиента с заданным ID,
@@ -35,7 +35,7 @@ public interface UserService {
      * @param id   - id клиента которого нужно обновить
      * @return - true если данные были обновлены, иначе false
      */
-    boolean update(User user, Integer id);
+    boolean update(MyUser myUser, Integer id);
 
     /**
      * Удаляет клиента с заданным ID

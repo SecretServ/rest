@@ -2,7 +2,7 @@ package spring.rest.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import spring.rest.model.User;
+import spring.rest.model.MyUser;
 import spring.rest.repository.UserRepository;
 
 import java.util.List;
@@ -14,24 +14,24 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
 
     @Override
-    public void create(User user) {
-        userRepository.save(user);
+    public void create(MyUser myUser) {
+        userRepository.save(myUser);
     }
 
     @Override
-    public List<User> readAll() {
+    public List<MyUser> readAll() {
         return userRepository.findAll();
     }
 
     @Override
-    public User read(Integer id) {
+    public MyUser read(Integer id) {
         return userRepository.getOne(id);
     }
 
     @Override
-    public boolean update(User user, Integer id) {
+    public boolean update(MyUser myUser, Integer id) {
         if (userRepository.existsById(id)) {
-            userRepository.save(user);
+            userRepository.save(myUser);
             return true;
         }
         return false;
